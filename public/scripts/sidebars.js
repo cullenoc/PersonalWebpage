@@ -1,3 +1,4 @@
+import Typed from "typed.js";
 let numBinaries = 12;
 
 const initBinaryStr = () => {
@@ -29,7 +30,7 @@ const populateBinStrs = (edge) => {
 }
 
 const redoBinStrs = (edge) => {
-    binStrs = edge.querySelectorAll("p");
+    let binStrs = edge.querySelectorAll("p");
     binStrs.forEach(textbox => textbox.textContent = initBinaryStr());
 }
 
@@ -49,3 +50,12 @@ let binaryEffects = new binaries();
 // add all from the start and phase some in and out of view after redoing contents each time
 // setInterval(binaryEffects._animate(), 5000);
 let binInterval = setInterval(binaryEffects._animate, 1000);
+
+// var typed = new Typed('.element', {
+//     strings: ["First sentence.", "Second Sentence."],
+//     typespeed: 30
+// });
+
+// console.log(typed);
+
+//document.querySelector("body").append(typed);
