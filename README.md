@@ -18,3 +18,4 @@ Webpack is necessary to importing node modules to a .js included as a script in 
 Notes on using webpack:
 https://www.youtube.com/watch?v=5IG4UmULyoA
 https://flaviocopes.com/fix-dirname-not-defined-es-module-scope/
+https://www.youtube.com/watch?v=jwcD9n3RqWQ
