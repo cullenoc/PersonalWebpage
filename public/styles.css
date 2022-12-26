@@ -35,17 +35,67 @@ h1 {
 
 #header-container {
     display: flex;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
+}
+
+#portrait-container {
+    margin-right: -2rem;
+    width: 15vw; 
+}
+
+#portrait-container > * {
+    width: inherit;
+}
+
+.window {
+    display: flex;
+    align-items: center;
+    height: 1.5rem;
+    font-size: x-small;
+    background-color: white;
+    color: black;
+    padding-bottom: 0.1rem;
+}
+
+.window > * {
+    max-height: 100%;
+    width: auto;
+}
+
+.cmd-icon {
+    height: 90%;
+    margin-left: .3rem;
+    margin-right: .1rem;
+}
+
+.window-controls {
+    margin-left: auto;
+}
+
+@media screen and (max-width: 754px) {
+    .window-controls {
+        display: none !important;
+    }
 }
 
 #portrait {
-    max-width: 150px;
-    min-width: 50px;
-    object-fit: cover;
-    border-radius: 1rem;
-    margin-right: 2rem;
+    object-fit: contain;
+    border-left: solid;
+    border-right: solid;
+    border-bottom: solid;
+    border-width: 0.3rem;
 }
 
 #header-text {
+    margin-top: 3rem;
+    border-left:solid;
+    border-right:solid;
+    border-bottom:solid;
+    border-width: 0.3rem;
+    background-color: rgb(12, 12, 12);
+    border-color: white;
+}
 
+#header-inner-container {
+    padding: 0.5rem;
 }
