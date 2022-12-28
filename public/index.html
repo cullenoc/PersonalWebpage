@@ -10,13 +10,11 @@
 
     <!-- Webpage functionality -->
     <script defer src="./scripts/main.js"></script>
-    <!-- <script type="module" src="./scripts/sidebars.js"></script> -->
-    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script> -->
+    <!-- <script type="module" src="./scripts/sidebar.js"></script> -->
 
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="edge"></div>
     <div id="content-container">
       <div id="header-container">
         <div id="portrait-container">
@@ -40,8 +38,17 @@
             </h3>
           </div>
         </div>
+        <div id="sidebar-container">
+          <div class="window">
+            <img class="cmd-icon" src="./images/cmd.jpg">
+            <p>Command Prompt</p>
+            <img class="window-controls" src="./images/window_controls.png">
+          </div>
+          <div id="sidebar"></div>
+        </div>
       </div>
     </div>
-    <div class="edge"></div>
+    <!-- turn sidebar into a rectangular window position behind and offset from the header text -->
+    <!-- Links has a folder or file style icon and open in the space below the row they are on -->
   </body>
 </html>

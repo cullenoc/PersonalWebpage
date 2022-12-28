@@ -13,7 +13,7 @@ const isProduction = process.env.NODE_ENV == "production";
 const stylesHandler = "style-loader";
 
 const config = {
-  entry: "./public/scripts/sidebars.js",
+  entry: "./public/scripts/sidebar.js",
   output: {
     path: _resolve(__dirname, "dist"),
   },
