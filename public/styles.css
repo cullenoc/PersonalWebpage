@@ -11,41 +11,39 @@ html {
 }
 
 body {
-    display: flex;
-    justify-content: space-around;
+    /* display: flex;
+    justify-content: space-around; */
     height: 100%;
-    margin: 0;
     background-color: rgb(12, 12, 12);
     color: white;
     font: 1.3rem Inconsolata, monospace;
 }
 
-h1 {
-    margin-top: 0;
-}
-
 #content-container {
-    margin-left: 3rem;
+    position: relative;
     width: 100%;
 }
 
 #header-container {
     display: flex;
+    justify-content:space-around;
     margin-top: 1.5rem;
 }
 
 #portrait-container {
-    margin-right: -3rem;
-    margin-bottom: 3rem;
     width: 15vw; 
+    margin-top: 3rem;
 }
 
 #portrait-container > * {
     width: inherit;
 }
 
-#portrait-container:hover {
-    z-index: 1;
+#portrait {
+    object-fit: contain;
+    border-left: solid;
+    border-right: solid;
+    border-bottom: solid;
 }
 
 .window {
@@ -63,7 +61,7 @@ h1 {
     width: auto;
 }
 
-.cmd-icon {
+.icon {
     height: 90%;
     margin-left: .3rem;
     margin-right: .1rem;
@@ -73,29 +71,26 @@ h1 {
     margin-left: auto;
 }
 
-@media screen and (max-width: 754px) {
-    .window-controls {
+@media screen and (max-width: 1100px) {
+    #portrait-container > .window > .window-controls {
         display: none !important;
     }
 }
 
-#portrait {
-    object-fit: contain;
+#header-text {
+    margin-top: 9rem;
+    margin-left: -6rem;
+    width: 50vw;
     border-left: solid;
     border-right: solid;
     border-bottom: solid;
-    border-width: 0.3rem;
-}
-
-#header-text {
-    margin-top: 3rem;
-    width: 50vw;
-    border-left:solid;
-    border-right:solid;
-    border-bottom:solid;
-    border-width: 0.3rem;
     background-color: rgb(12, 12, 12);
     border-color: white;
+}
+
+#header-text > .window {
+    border-left: 1rem;
+    border-right: 1rem;
 }
 
 #header-inner-container {
@@ -103,17 +98,19 @@ h1 {
 }
 
 #sidebar-container {
-    width: 40vw;
-    margin-left: -10rem;
+    position: absolute;
+    width: 70%;
     margin-top: -1rem;
+    z-index: -1;
 }
 
 #sidebar {
     display: flex;
-    height: 45vh;
+    height: 60vh;
     flex-direction: column;
     align-items: baseline;
     border-style: solid;
+    border-top: 0;
     background-color: rgb(12, 12, 12);
     font-size: 14px;
     overflow: hidden; /* Hide child text which would extend beyond this container */ 
@@ -126,4 +123,83 @@ h1 {
 .assembly {
     white-space: nowrap; /* Do not wrap text content which cannot extend beyond parent container*/
     height: 23px;
+}
+
+#projects-list {
+    margin-left: 7rem;
+    margin-right: 7rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* width: 100%; */
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    /* display: contents; */
+    overflow-wrap: break-word;
+    width: 200px
+}
+
+.project-container:hover {
+    background-color: rgba(135, 206, 250, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.5rem;
+    border-color: aliceblue;
+}
+
+.project-container > h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.project {
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+}
+
+.project-description {
+    display: none;
+}
+
+@media not (orientation:landscape) {
+    #notepad {
+        max-width: 90% !important; 
+    }
+}
+
+#notepad {
+    display: none;
+    background-color: white;
+    color: black;
+    position:fixed;
+    min-height: 40vh;  /* Cannot use percentage as parent has no such defined property */
+    max-height: 80vh;
+    top:4rem;
+    left: 0; 
+    right: 0; 
+    z-index: 3;
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 50%;
+    overflow: hidden;
+}
+
+#notepad > .window > .window-controls:hover {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+#description-box {
+    padding: 0.5rem;
+    max-height: 75vh;  /* Max-height property inhereted only if parent max-height property is defined */
+    overflow: auto;
+}
+
+a {
+    color: rgb(4, 88, 245);
 }

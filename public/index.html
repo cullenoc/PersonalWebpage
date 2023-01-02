@@ -19,35 +19,100 @@
       <div id="header-container">
         <div id="portrait-container">
           <div class="window">
-            <img class="cmd-icon" src="./images/cmd.jpg">
+            <img class="icon" src="./images/cmd.jpg">
             <p>Command Prompt</p>
             <img class="window-controls" src="./images/window_controls.png">
           </div>
           <img id="portrait" src="./images/ccme.jpg" alt="Cullen">
         </div>
-        <div id="header-text">
-          <div class="window">
-            <img class="cmd-icon" src="./images/cmd.jpg">
-            <p>Command Prompt</p>
-            <img class="window-controls" src="./images/window_controls.png">
-          </div>
-          <div id="header-inner-container">
-            <h1>Hi, I'm Cullen.</h1>
-            <h3>I learn new concepts like parallel computing in CUDA, baremetal OS implementation in C,
-              or machine learning with Google Bigquery and share them here.
-            </h3>
-          </div>
-        </div>
         <div id="sidebar-container">
           <div class="window">
-            <img class="cmd-icon" src="./images/cmd.jpg">
+            <img class="icon" src="./images/cmd.jpg">
             <p>Command Prompt</p>
             <img class="window-controls" src="./images/window_controls.png">
           </div>
           <div id="sidebar"></div>
         </div>
+        <div id="header-text">
+          <div class="window">
+            <img class="icon" src="./images/cmd.jpg">
+            <p>Command Prompt</p>
+            <img class="window-controls" src="./images/window_controls.png">
+          </div>
+          <div id="header-inner-container">
+            <h1>Hi, I'm Cullen.</h1>
+            <h3>I'm a 3rd year CS undergrad at Stanford studying how computers work quickly, correctly, and efficiently. Below are some
+              projects I have worked on across a breadth of topics. Find me on <a href="https://www.linkedin.com/in/cullenoc">LinkedIn</a>
+              or at <a href="mailto:cullenoc@stanford.edu">cullenoc@stanford.edu</a>.
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div id="projects-list">
+        <div class="project-container">
+          <img class="project" src="./images/folder.png">
+          <h3>NYC Traffic Collisions BigQuery</h3>
+        </div>
+        <div class="project-container">
+          <img class="project" src="./images/folder.png">
+          <h3>Matrix Multiplication OpenMP & AVX</h3>
+        </div>
+        <div class="project-container">
+          <img class="project" src="./images/folder.png">
+          <h3>VR Headset Audio Redesign</h3>
+        </div>
+        <div class="project-container">
+          <img class="project" src="./images/folder.png">
+          <h3>This Webpage</h3>
+        </div>    
+      </div>
+      <div id="notepad">
+        <div class="window">
+          <img class="icon" src="./images/notepad.webp">
+          <p>Notepad</p>
+          <img class="window-controls" src="./images/window_controls_red.png">
+        </div>
+        <div id="description-box">
+        </div>
       </div>
     </div>
+    <p class="project-description" id="NYC">
+      In <a href="./documents/NYC.pdf">this data analysis project</a>, fellow Stanford CS student
+      <a href="https://www.linkedin.com/in/eastan-giebler">Eastan Giebler</a> and I
+      queried datasets of all documented NYC motor vehicle collisions since 2012 (2 millions rows)
+      and NYC Citibike station information (2,000 rows) with SQL in BigQuery.
+      We identified the most dangerous factors (defective road shoulder, speeding, GPS) contributing to collisions and visualized trends in collision volume. The citibike station
+      data was cleaned and merged with the collision data to find that the casualty rate (injury or fatality) of accidents increased from 21% to 26% in close proximity (250m) of 
+      Citibike stations. We trained a logistic regression model on relevant data features to predict whether a collision caused any casualties. Our model showed precision of 0.717
+      and accuracy of 0.833 when evaluated on our validation set.
+    </p>
+    <p class="project-description" id="Matrix">
+      The naive approach to <a href="https://github.com/cullenoc/MatrixMultiplication.git">Matrix Multiplication</a> is an operation with plenty of independent work. 
+      The dot products of each row of some matrix A and each column of some matrix B can be computed independently of one another, and the products of each value in a row 
+      and each value of corresponding index in a column can also be computed independently. To build a working proficiency with a couple of parallel computing frameworks,
+      I have exposed parallelism over rows and columns with OpenMP multithreading and parallelism
+      over values within rows and columns with AVX intrinsics. Reprsenting a matrix as a one dimensional array introduces memory locality issues but
+      these can largely by overcome by first transposing one of the matrices. Transposing matrix B allows for computing the dot product of each row of matrix A with
+      each row of B, rather than each column of B. If the array representation of a matrix places a rows consecutive indexes in consecutive physical memory locations, 
+      then cache lines are read in and all values in the cache line are used in computation before another cache line is loaded. Reading a whole column, however, requires loading
+      a cache line from one row, using a single value from that cache line in computation, and then loading a cache line from the next row, and so on. 
+      
+    </p>
+    <p class="project-description" id="VR">
+      Stanford's Surgery 172 gave me the opportunity to solve a design challenge involving human anatomy. My team incorporated bone-conduction headphones into a 
+      <a href="https://docs.google.com/presentation/d/10G9bNONebLQNcau6JWVhkEIeSy2X6eCrm6lx_rRtPoU/edit?usp=sharing">VR Headset Audio Redesign</a>,
+      reimagining a popular product to better acomodate user anatomy and needs. Bone-conduction 
+      Headphones offer greater comfort and spatial awareness that conventional headphones, making them desirable for sustained use and interactive environments.
+      Simplicity and awarenes of material properties are at the core of our design (Slide 16 onwards, best viewed in Slideshow mode).
+      Flexible struts similar to eyeglass temples, rather than sprung or otherwise adjustable joints, hold the bone conductor speakers to the skull. Forgoing 
+      additional joints reduces structual weak points and the need for adjustment when putting on the headset.  
+    </p>
+    <p class="project-description" id="Webpage">
+      Seeking a challenge for my admittedly rudimentary web development skills, I decided to make a terminal visual to reflect my interest in low-level programming, which I typically do in a terminal editor.  
+      Here is the <a href="https://github.com/cullenoc/PersonalWebpage.git">markup and code</a> for this webpage, a mock up of a windows desktop and typing terminal.
+      It features a class built around the typed.js library to continuously scroll the terminal window as new typing animations play. Being my first time using an external library in the front end, 
+      I got to wrangle with the difficulties of importing node modules and found an effective solution in the bundler Webpack.
+    </p>
     <!-- turn sidebar into a rectangular window position behind and offset from the header text -->
     <!-- Links has a folder or file style icon and open in the space below the row they are on -->
   </body>
